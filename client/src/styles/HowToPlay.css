@@ -1,0 +1,181 @@
+/* HowToPlay.css — ACADEMIC GUIDELINES */
+
+.how-to-play-container {
+    height: 100vh;
+    max-height: 100vh;
+    min-height: 100vh;
+    background: linear-gradient(-45deg, #0a1628, #1a3a52, #0d4d4d, #2d1b00);
+    background-size: 400% 400%;
+    animation: bg-gradient-shift 15s ease infinite;
+    padding: 1rem;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.how-to-play-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+    pointer-events: none;
+}
+
+.guide-content {
+    max-width: 1000px;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Glass Card */
+.guide-card {
+    background: rgba(10, 22, 40, 0.85) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 212, 255, 0.3) !important;
+    border-radius: 24px !important;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+    margin-top: 0.5rem;
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
+
+.guide-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.guide-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, #00d4ff, #00ff88);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.guide-subtitle {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 1px;
+}
+
+/* Mechanic Blocks */
+.mechanic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.mechanic-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mechanic-icon {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+    display: block;
+}
+
+.mechanic-label {
+    font-weight: 800;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.mechanic-desc {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Tips Section */
+.tips-section {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(0, 212, 255, 0.05);
+    border-radius: 16px;
+}
+
+.tips-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+    text-align: center;
+    color: #00d4ff;
+}
+
+.tips-list {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+}
+
+.tip-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.btn-back-hub {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 107, 0, 0.1);
+    border: 1px solid rgba(255, 107, 0, 0.3);
+    border-radius: 10px;
+    color: #ff6b00;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+    margin-bottom: 1rem;
+    z-index: 10;
+}
+
+@media (max-width: 900px) {
+    .mechanic-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .tips-list {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .mechanic-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .guide-title {
+        font-size: 1.8rem;
+    }
+}

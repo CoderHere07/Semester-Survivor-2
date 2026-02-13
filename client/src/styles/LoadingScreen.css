@@ -1,0 +1,122 @@
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(circle at center, #0a1628 0%, #050a14 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.floating-icon {
+    filter: drop-shadow(0 0 15px currentColor);
+}
+
+.loading-text-container {
+    text-align: center;
+}
+
+.loading-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3.5rem;
+    letter-spacing: 8px;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 20px rgba(0, 200, 255, 0.5);
+}
+
+.loading-bar-container {
+    width: 300px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    margin: 0 auto 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.loading-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00c8ff, #ff2a6d, #0aff9d);
+    background-size: 200% 100%;
+    animation: gradient-flow 2s linear infinite;
+}
+
+.loading-status {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.loading-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(1px);
+}
+
+@keyframes gradient-flow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 10px currentColor);
+    }
+
+    50% {
+        filter: drop-shadow(0 0 30px currentColor);
+    }
+}
+
+/* Animations for icons */
+.book-icon {
+    animation: pulse-glow 3s infinite ease-in-out;
+}
+
+.cap-icon {
+    animation: pulse-glow 4s infinite ease-in-out 0.5s;
+}
+
+.pencil-icon {
+    animation: pulse-glow 2.5s infinite ease-in-out 1s;
+}

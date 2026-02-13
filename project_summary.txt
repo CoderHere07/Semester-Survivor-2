@@ -1,0 +1,42 @@
+# Dependency and Structure Report: Semester Survival 2
+
+## Project Overview
+**Name:** Semester Survival 2
+**Architecture:** MERN Stack (Mono-repo)
+**Frontend:** React + Vite
+**Backend:** Express + Node.js
+**Database:** MongoDB (via Mongoose)
+
+## File Structure Summary
+- `/client`: React frontend application.
+  - `/src`: Application source code (components, game data, stores, styles).
+  - `/public`: Static assets.
+- `/server`: Express backend application.
+  - `/models`: Database schemas (GameState, User).
+  - `/routes`: API endpoints (auth, game).
+  - `/middleware`: Custom server logic.
+
+## Key Dependencies
+
+### Client
+- `react`: ^19.2.0
+- `axios`: ^1.13.4
+- `framer-motion`: ^12.34.0 (for animations)
+- `bootstrap`: ^5.3.8 (for layout/styling)
+- `react-redux`: ^9.2.0 (state management)
+- `react-router-dom`: ^7.13.0 (navigation)
+
+### Server
+- `express`: ^5.2.1
+- `mongoose`: ^9.1.6
+- `jsonwebtoken`: ^9.0.3 (authentication)
+- `bcryptjs`: ^3.0.3 (password hashing)
+- `cors`: ^2.8.6 (cross-origin requests)
+- `dotenv`: ^17.2.3 (environment variables)
+
+## Key Features
+- **Gameplay:** 8-semester student life simulation.
+- **Stats Management:** Real-time tracking of Grades, Stress, and Energy.
+- **Combat/Interactions:** Pencil-throwing mechanics and tactical choices.
+- **Leaderboard:** Persistence of high scores and student performance.
+- **Authentication:** Secure login and registration system.

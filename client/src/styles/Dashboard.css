@@ -1,0 +1,356 @@
+/* Dashboard.css — PREP ROOM HUB */
+
+.dashboard-container {
+    height: 100vh;
+    max-height: 100vh;
+    min-height: 100vh;
+    background: linear-gradient(-45deg, #0a1628, #1a3a52, #0d4d4d, #2d1b00);
+    background-size: 400% 400%;
+    animation: bg-gradient-shift 15s ease infinite;
+    padding: 1rem;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.dashboard-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+    pointer-events: none;
+}
+
+/* Header */
+.dashboard-top-nav {
+    max-width: 1200px;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    z-index: 10;
+}
+
+.dashboard-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.8rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin: 0;
+    color: #ffffff;
+}
+
+/* Layout Grid */
+.command-center-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    width: 100%;
+    z-index: 10;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+/* Card Styling */
+.dashboard-card {
+    background: rgba(10, 22, 40, 0.85) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 212, 255, 0.3) !important;
+    border-radius: 24px !important;
+    padding: 1.2rem;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 80px rgba(0, 212, 255, 0.15);
+    position: relative;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-3px);
+}
+
+.card-header-inner {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Student Profile Card */
+.avatar-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.avatar-glow-aura {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, var(--color-electric-blue) 0%, transparent 70%);
+    filter: blur(25px);
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    flex-grow: 1;
+}
+
+.username-text {
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.rank-text {
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+}
+
+.status-active {
+    color: #00ff88;
+    font-weight: 800;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.xp-container {
+    margin-top: 0.5rem;
+}
+
+.progress-bar-base {
+    width: 100%;
+    height: 8px;
+    /* Slightly thicker like battle bars */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    margin: 0.4rem 0;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.progress-fill-blue {
+    height: 100%;
+    background: linear-gradient(90deg, #00d4ff, #00ff88);
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.progress-fill-purple {
+    height: 100%;
+    background: linear-gradient(90deg, #ff2a6d, #8b5cf6);
+    box-shadow: 0 0 10px rgba(255, 42, 109, 0.3);
+}
+
+.xp-value {
+    font-weight: 700;
+    color: #fff;
+    font-size: 0.8rem;
+}
+
+/* Semester Card */
+.semester-num {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 0.4rem;
+}
+
+.boss-info {
+    margin: 1rem 0;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.btn-enter-class {
+    width: 100%;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #00d4ff, #00ff88);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    margin-top: auto;
+}
+
+.btn-enter-class::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff6b00, #ff8c00);
+    transform: translateX(-100%);
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 1;
+}
+
+.btn-enter-class:hover::before {
+    transform: translateX(0);
+}
+
+.btn-enter-class span {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-enter-class:hover {
+    transform: translateY(-3px);
+}
+
+/* How To Play Card */
+.guide-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    flex-grow: 1;
+}
+
+.guide-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+}
+
+.btn-guide-link {
+    color: #00ff88;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+/* Leaderboard Snippet */
+.leaderboard-container {
+    grid-column: span 3;
+    margin-top: 0.5rem;
+    max-height: 200px;
+    /* Reduced for 3 rows + Me row */
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+
+.rankings-table {
+    width: 100%;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.rankings-table::-webkit-scrollbar {
+    width: 6px;
+}
+
+.rankings-table::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.rank-row {
+    display: grid;
+    grid-template-columns: 50px 1fr 120px 120px;
+    align-items: center;
+    padding: 0.4rem 0.8rem;
+    /* More compact */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.85rem;
+}
+
+.btn-full-rankings {
+    display: block;
+    text-align: center;
+    margin-top: 0.8rem;
+    color: #00ff88;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* Logout Link */
+.dashboard-logout-link {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .command-center-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .leaderboard-container {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .command-center-grid {
+        grid-template-columns: 1fr;
+        overflow-y: auto;
+        padding-right: 5px;
+    }
+
+    .leaderboard-container {
+        grid-column: span 1;
+        max-height: 200px;
+    }
+
+    .dashboard-title {
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+    }
+
+    .rank-row {
+        grid-template-columns: 40px 1fr 80px 80px;
+        font-size: 0.8rem;
+    }
+}

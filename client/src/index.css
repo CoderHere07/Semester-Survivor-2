@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
+body {
+  background-color: #050505;
+  color: #e0e0e0;
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  background-image:
+    radial-gradient(circle at 15% 50%, rgba(98, 0, 234, 0.15), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(3, 218, 198, 0.15), transparent 25%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Glassmorphism Cards */
+.card {
+  background: rgba(20, 20, 20, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Buttons */
+.btn {
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(255, 255, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.btn:hover::after {
+  opacity: 1;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #6200ea, #b00020);
+  box-shadow: 0 4px 15px rgba(98, 0, 234, 0.4);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 20px rgba(98, 0, 234, 0.6);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #00bfa5, #004d40);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 191, 165, 0.4);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #ff5252, #c62828);
+  box-shadow: 0 4px 15px rgba(255, 82, 82, 0.4);
+}
+
+.btn-info {
+  background: linear-gradient(135deg, #2979ff, #1565c0);
+  color: white;
+  box-shadow: 0 4px 15px rgba(41, 121, 255, 0.4);
+}
+
+.btn-outline-primary,
+.btn-outline-success,
+.btn-outline-info {
+  border: 2px solid;
+  background: transparent;
+  box-shadow: none;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-success:hover,
+.btn-outline-info:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes shake {
+
+  10%,
+  90% {
+    transform: translate3d(-2px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(4px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-6px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(6px, 0, 0);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.6s cubic-bezier(.36, .07, .19, .97) both;
+  color: #ff5252 !important;
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(98, 0, 234, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(98, 0, 234, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(98, 0, 234, 0);
+  }
+}
+
+.animate-pulse {
+  animation: pulse-glow 1.5s infinite;
+}
+
+/* Battle Specific Animations */
+@keyframes student-attack {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+
+  50% {
+    transform: translateX(50px) scale(1.1) rotate(5deg);
+  }
+
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes teacher-attack {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+
+  50% {
+    transform: translateX(-50px) scale(1.1) rotate(-5deg);
+  }
+
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}
+
+.action-student-attack {
+  animation: student-attack 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.action-teacher-attack {
+  animation: teacher-attack 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes slide-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.log-entry-anim {
+  animation: slide-in-up 0.3s ease-out forwards;
+}
+
+/* Floating Combat Text */
+@keyframes float-up-fade {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-30px) scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-60px) scale(1);
+    opacity: 0;
+  }
+}
+
+.floating-text {
+  position: absolute;
+  font-weight: 800;
+  font-size: 1.5rem;
+  pointer-events: none;
+  animation: float-up-fade 1s ease-out forwards;
+  z-index: 1000;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Progress Bars */
+.progress {
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 4px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.progress-bar {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 5px;
+  border: 2px solid #050505;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.log-container {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+}
+
+/* Projectile Animations */
+@keyframes throw-right {
+  0% {
+    transform: translateX(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(600px) scale(1.5) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes throw-left {
+  0% {
+    transform: translateX(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-600px) scale(1.5) rotate(-360deg);
+    opacity: 0;
+  }
+}
+
+.projectile {
+  position: absolute;
+  font-size: 3rem;
+  z-index: 2000;
+  pointer-events: none;
+}
+
+.projectile-student {
+  animation: throw-right 0.6s linear forwards;
+}
+
+.projectile-teacher {
+  animation: throw-left 0.6s linear forwards;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+  animation: fade-in 0.3s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.toggle-group {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 10px;
+}

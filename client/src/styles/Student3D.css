@@ -1,0 +1,402 @@
+/* Character 3D Shared Base */
+.character-3d-container {
+    width: 140px;
+    height: 140px;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.1s ease-out;
+}
+
+/* Student 3D Styles - ACADEMIC BATTLE READY */
+.student-3d {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(-10deg);
+    /* Angled toward teacher */
+}
+
+.student-head {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(145deg, #ffd4a3, #ffb366);
+    border-radius: 50%;
+    position: absolute;
+    top: 8px;
+    left: 35%;
+    transform: translateX(-50%);
+    transform-style: preserve-3d;
+    transform-origin: center center;
+    box-shadow:
+        0 8px 20px rgba(0, 242, 254, 0.5),
+        inset -3px -3px 10px rgba(0, 0, 0, 0.2),
+        inset 3px 3px 10px rgba(255, 255, 255, 0.3);
+}
+
+.face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateZ(5px);
+}
+
+.eyes {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 12px;
+    margin-top: 14px;
+}
+
+.eye {
+    width: 8px;
+    height: 8px;
+    background: #2c3e50;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.eye::after {
+    content: '';
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+
+.mouth {
+    width: 18px;
+    height: 6px;
+    border: 2px solid #2c3e50;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(44, 62, 80, 0.1);
+}
+
+/* Battle expressions */
+.mouth.determined {
+    width: 14px;
+    height: 2px;
+    border-radius: 0;
+    border-bottom: 2px solid #2c3e50;
+    bottom: 15px;
+}
+
+/* Student Hoodie Body */
+.student-body {
+    width: 55px;
+    height: 50px;
+    background: linear-gradient(145deg, #00d4ff, #0099cc);
+    position: absolute;
+    top: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 12px 12px 18px 18px;
+    transform-style: preserve-3d;
+    box-shadow:
+        0 8px 20px rgba(0, 242, 254, 0.6),
+        inset -3px -3px 10px rgba(0, 0, 0, 0.3),
+        inset 3px 3px 10px rgba(10, 255, 157, 0.4);
+}
+
+/* Hoodie Details */
+.hoodie {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #00f2fe, #00d4ff);
+    border-radius: 12px 12px 18px 18px;
+    position: relative;
+}
+
+.hoodie::before {
+    content: '';
+    width: 12px;
+    height: 25px;
+    background: linear-gradient(145deg, #0aff9d, #00d4ff);
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(10, 255, 157, 0.6);
+}
+
+/* Hoodie Strings */
+.hoodie::after {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 1px;
+    box-shadow: 0 6px 0 #fff;
+}
+
+.arm {
+    width: 15px;
+    height: 38px;
+    background: linear-gradient(145deg, #00d4ff, #0099cc);
+    position: absolute;
+    top: 3px;
+    border-radius: 8px;
+    transform-origin: top center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.left-arm {
+    left: -12px;
+    transform: rotate(-15deg);
+}
+
+.right-arm {
+    right: -12px;
+    transform: rotate(15deg);
+}
+
+/* Backpack - MANDATORY STUDENT IDENTIFIER */
+.backpack {
+    width: 70px;
+    height: 52px;
+    background: linear-gradient(145deg, #6200ea, #3700b3);
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%) translateZ(-12px);
+    border-radius: 12px;
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.6),
+        0 0 25px rgba(183, 33, 255, 0.5),
+        inset 2px 2px 5px rgba(255, 255, 255, 0.2);
+}
+
+.backpack::before {
+    content: '';
+    width: 35px;
+    height: 12px;
+    background: linear-gradient(145deg, #b721ff, #ff2a6d);
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 6px;
+    box-shadow: 0 0 20px rgba(255, 42, 109, 0.8);
+    animation: pulse-glow 2s infinite;
+    z-index: 2;
+}
+
+/* Side Pockets / Handle */
+.backpack::after {
+    content: '';
+    width: 80px;
+    height: 15px;
+    background: linear-gradient(145deg, #4a148c, #6200ea);
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%) translateZ(-2px);
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Backpack Straps */
+.backpack-strap {
+    width: 5px;
+    height: 28px;
+    background: linear-gradient(145deg, #6200ea, #4a148c);
+    position: absolute;
+    top: 46px;
+    left: 50%;
+    border-radius: 2px;
+    box-shadow:
+        inset 0 0 3px rgba(0, 0, 0, 0.5),
+        0 0 8px rgba(183, 33, 255, 0.4);
+    z-index: 5;
+}
+
+.backpack-strap.left {
+    margin-left: -15px;
+    transform: translateX(-50%) rotate(-5deg) translateZ(8px);
+}
+
+.backpack-strap.right {
+    margin-left: 15px;
+    transform: translateX(-50%) rotate(5deg) translateZ(8px);
+}
+
+/* Floating Books - MANDATORY STUDENT IDENTIFIER */
+.floating-books {
+    position: absolute;
+    top: 10px;
+    right: -25px;
+    transform-style: preserve-3d;
+    pointer-events: none;
+}
+
+.book {
+    width: 22px;
+    height: 28px;
+    background: linear-gradient(135deg, #00d4ff, #00f2fe);
+    border-radius: 2px 4px 4px 2px;
+    position: absolute;
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.4),
+        0 0 10px rgba(0, 212, 255, 0.4);
+    transform-style: preserve-3d;
+}
+
+.book::before {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.book::after {
+    content: '';
+    position: absolute;
+    right: 2px;
+    top: 4px;
+    width: 12px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 0 rgba(255, 255, 255, 0.5), 0 8px 0 rgba(255, 255, 255, 0.5);
+}
+
+.book-1 {
+    background: linear-gradient(135deg, #00d4ff, #0099cc);
+    transform: rotateY(-20deg) rotateZ(10deg);
+    z-index: 2;
+}
+
+.book-2 {
+    background: linear-gradient(135deg, #0aff9d, #00d4ff);
+    top: 15px;
+    right: -10px;
+    transform: rotateY(15deg) rotateZ(-5deg) translateZ(-10px);
+    z-index: 1;
+}
+
+/* Pencil Sword - WEAPONIZED SCHOOL ITEM */
+.pencil-sword {
+    width: 3px;
+    height: 35px;
+    background: linear-gradient(180deg, #ffd700, #ff6b00);
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-25deg);
+    border-radius: 2px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.9);
+}
+
+.pencil-sword::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 8px solid #2c3e50;
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: drop-shadow(0 0 8px rgba(10, 255, 157, 0.8));
+}
+
+/* Student Legs and Shoes */
+.student-legs {
+    position: absolute;
+    top: 95px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+}
+
+.leg {
+    width: 12px;
+    height: 30px;
+    background: linear-gradient(145deg, #1a1a2e, #0f0f1e);
+    border-radius: 6px;
+    position: relative;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Sneakers - Casual Student Shoes */
+.shoe {
+    width: 18px;
+    height: 10px;
+    background: linear-gradient(145deg, #fff, #e0e0e0);
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px 5px 3px 3px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.shoe::after {
+    content: '';
+    width: 6px;
+    height: 5px;
+    background: linear-gradient(145deg, #00f2fe, #0aff9d);
+    position: absolute;
+    bottom: 0;
+    left: -5px;
+    border-radius: 3px 0 0 2px;
+    box-shadow: 0 0 8px rgba(10, 255, 157, 0.6);
+}
+
+.shoe::before {
+    content: '';
+    width: 12px;
+    height: 2px;
+    background: #00d4ff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1px;
+}
+
+/* Particles and Aura */
+.energy-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.student-particle {
+    background: radial-gradient(circle, #00f2fe, #0aff9d);
+    box-shadow:
+        0 0 10px #00f2fe,
+        0 0 20px #0aff9d,
+        0 0 30px #00d4ff;
+}
+
+.character-aura {
+    display: none;
+}
+
+.student-aura {
+    background: radial-gradient(circle, rgba(0, 242, 254, 0.7), rgba(10, 255, 157, 0.4), transparent 70%);
+}

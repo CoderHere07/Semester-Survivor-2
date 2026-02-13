@@ -1,0 +1,609 @@
+/* BattleArena.css — CINEMATIC ACADEMIC COMBARENA */
+
+.battle-arena-container {
+    height: 100vh;
+    max-height: 100vh;
+    min-height: 100vh;
+    background: linear-gradient(-45deg, #0a1628, #1a3a52, #0d4d4d, #2d1b00);
+    background-size: 400% 400%;
+    animation: bg-gradient-shift 15s ease infinite;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.battle-arena-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+    pointer-events: none;
+}
+
+/* Header */
+.battle-header {
+    text-align: center;
+    margin-bottom: 0.2rem;
+    z-index: 10;
+}
+
+.semester-badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stage-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    margin: 0;
+    color: #fff;
+}
+
+/* Battle Ground */
+.battle-ground {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    gap: 1rem;
+    position: relative;
+    z-index: 5;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+/* Character Cards */
+.char-card {
+    background: rgba(10, 22, 40, 0.8) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px !important;
+    padding: 12px 16px;
+    width: 300px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    /* Prevent character overflow */
+}
+
+.student-card {
+    border-left: 4px solid #00c8ff !important;
+}
+
+.teacher-card {
+    border-right: 4px solid #ff2a6d !important;
+}
+
+/* Sprite Areas */
+.sprite-container {
+    height: 150px;
+    /* Increased height for headroom */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-top: 20px;
+    /* Space for the floating head */
+}
+
+.aura-glow {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    filter: blur(35px);
+    opacity: 0.35;
+    bottom: 10px;
+    z-index: -1;
+}
+
+.student-aura {
+    background: radial-gradient(#00c8ff, #0aff9d);
+}
+
+.teacher-aura {
+    background: radial-gradient(#ff2a6d, #8b5cf6);
+}
+
+/* Stats Blocks */
+.char-name {
+    font-weight: 800;
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-group {
+    margin-top: 0.5rem;
+}
+
+.stat-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.progress-base {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.energy-fill {
+    background: linear-gradient(90deg, #00c8ff, #0aff9d);
+}
+
+.stress-fill {
+    background: linear-gradient(90deg, #ffe500, #ff9900);
+}
+
+.patience-fill {
+    background: linear-gradient(90deg, #ff2a6d, #8b5cf6);
+}
+
+/* VS Piece */
+.vs-centerpiece {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 300px;
+    align-self: flex-start;
+}
+
+.vs-text {
+    font-size: 3.5rem;
+    font-weight: 950;
+    color: #fff;
+    font-style: italic;
+    text-shadow:
+        2px 2px 0px #000,
+        -1.5px -1.5px 0px #000,
+        1.5px -1.5px 0px #000,
+        -1.5px 1.5px 0px #000;
+    z-index: 1;
+    line-height: 1;
+    font-family: 'Outfit', sans-serif;
+    margin-bottom: 0;
+}
+
+/* Battle Ground Columns */
+.battle-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.student-column {
+    width: 300px;
+}
+
+.teacher-column {
+    width: 320px;
+}
+
+/* Action Area Styling Refinement */
+.action-area-under-student {
+    width: 100%;
+    background: rgba(15, 25, 45, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 8px 12px;
+    margin-top: 5px;
+}
+
+.section-label {
+    font-weight: 900;
+    font-size: 0.6rem;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: uppercase;
+}
+
+.compact-action-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+}
+
+/* Updated Battle Buttons */
+.battle-btn {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 10px !important;
+    padding: 8px 12px !important;
+    color: #fff !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    min-height: 42px;
+    width: 100%;
+}
+
+.btn-attack:hover {
+    background: rgba(0, 200, 255, 0.1) !important;
+    border-color: rgba(0, 200, 255, 0.3) !important;
+    box-shadow: 0 0 10px rgba(0, 200, 255, 0.1);
+}
+
+.btn-defense:hover {
+    background: rgba(10, 255, 157, 0.1) !important;
+    border-color: rgba(10, 255, 157, 0.3) !important;
+    box-shadow: 0 0 10px rgba(10, 255, 157, 0.1);
+}
+
+.btn-main-text {
+    font-weight: 700;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.btn-cost-text {
+    font-size: 0.6rem;
+    font-weight: 800;
+    opacity: 0.9;
+    white-space: nowrap;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.battle-btn:active {
+    transform: scale(0.97);
+}
+
+/* Status Card */
+.status-card {
+    width: 100%;
+    max-width: 1200px;
+    background: rgba(10, 22, 40, 0.8) !important;
+    backdrop-filter: blur(20px);
+    border-radius: 12px !important;
+    padding: 8px 16px;
+    margin-top: 1rem;
+    border-left: 4px solid #00c8ff !important;
+    display: flex;
+    align-items: center;
+    z-index: 5;
+}
+
+.status-text {
+    font-style: italic;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+/* Cinematic Effects */
+.damage-popup {
+    position: absolute;
+    font-weight: 900;
+    font-size: 1.8rem;
+    pointer-events: none;
+    z-index: 100;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+
+.projectile {
+    position: absolute;
+    z-index: 50;
+    pointer-events: none;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+}
+
+/* Projectile Weapons Styles */
+.projectile .pencil-sword {
+    width: 4px;
+    height: 40px;
+    background: linear-gradient(180deg, #ffd700, #ff6b00);
+    border-radius: 2px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.9);
+}
+
+.projectile .pencil-sword::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 10px solid #2c3e50;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: drop-shadow(0 0 8px rgba(10, 255, 157, 0.8));
+}
+
+.projectile .grading-pen {
+    width: 4px;
+    height: 38px;
+    background: linear-gradient(180deg, #ff2a6d, #8b0000);
+    border-radius: 2px;
+    box-shadow: 0 0 12px rgba(255, 42, 109, 0.9);
+}
+
+.projectile .grading-pen::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 8px solid #8b0000;
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: drop-shadow(0 0 6px rgba(255, 42, 109, 0.8));
+}
+
+.projectile .grading-pen::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #ffd700;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 8px rgba(255, 215, 0, 1);
+}
+
+/* Animations */
+@keyframes shake-screen {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(3px, 3px);
+    }
+
+    50% {
+        transform: translate(-3px, -3px);
+    }
+
+    75% {
+        transform: translate(3px, -3px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.shake-it {
+    animation: shake-screen 0.2s ease-in-out 2;
+}
+
+/* Mobile Adjustments — FORCING SINGLE SCREEN */
+@media (max-width: 900px) {
+    .battle-arena-container {
+        padding: 0.3rem 0.5rem;
+    }
+
+    .battle-ground {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        justify-content: flex-start;
+    }
+
+    .vs-centerpiece {
+        height: 60px;
+        order: 2;
+    }
+
+    .vs-text {
+        font-size: 2.2rem;
+    }
+
+    .student-column {
+        order: 1;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .student-card {
+        padding: 8px 12px;
+    }
+
+    .teacher-column {
+        order: 3;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .teacher-card {
+        padding: 8px 12px;
+    }
+
+    .sprite-container {
+        height: 80px;
+    }
+
+    .action-area-under-student {
+        margin-top: 5px;
+        padding: 6px 10px;
+    }
+
+    .status-card {
+        margin-top: 0.5rem;
+        padding: 6px 12px;
+    }
+
+    .status-text {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .stage-title {
+        font-size: 1.4rem;
+    }
+
+    .compact-action-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 4px;
+    }
+
+    .battle-btn {
+        padding: 6px 10px !important;
+        min-height: 38px;
+    }
+}
+
+/* Victory/Defeat Modals */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 1rem;
+}
+
+.result-card {
+    background: rgba(10, 22, 40, 0.9) !important;
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 212, 255, 0.3) !important;
+    border-radius: 24px !important;
+    padding: 2.5rem !important;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 212, 255, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.result-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3rem;
+    letter-spacing: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.result-gpa-main {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #ffb86b;
+    margin-bottom: 1rem;
+}
+
+.result-btn-group {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.btn-result {
+    padding: 0.8rem 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 12px;
+    transition: all 0.3s;
+    min-width: 180px;
+    /* Force wide enough for DASHBOARD */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-result-hub {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-result-hub:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.btn-result-next {
+    background: linear-gradient(135deg, #00d4ff, #00ff88);
+    color: #0d1628;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+.btn-result-next:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5);
+}
+
+.animate-shake {
+    animation: shake-it 0.5s ease-in-out infinite;
+}
+
+@keyframes shake-it {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
