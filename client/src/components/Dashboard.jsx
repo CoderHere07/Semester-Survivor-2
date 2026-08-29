@@ -30,13 +30,13 @@ const Dashboard = () => {
             try {
                 const token = localStorage.getItem('token');
                 if (token) {
-                    const res = await axios.get('http://localhost:5001/api/game', {
+                    const res = await axios.get(import.meta.env.VITE_API_URL + '/api/game', {
                         headers: { 'x-auth-token': token }
                     });
                     if (res.data) dispatch(setGameState(res.data));
                 }
 
-                const leadersRes = await axios.get('http://localhost:5001/api/game/leaderboard');
+                const leadersRes = await axios.get(import.meta.env.VITE_API_URL + '/api/game/leaderboard');
                 setLeaders(leadersRes.data || []);
                 setIsLoading(false);
             } catch (err) {

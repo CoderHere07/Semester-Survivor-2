@@ -4,7 +4,11 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
 
-const allowedOrigins = ["http://localhost:5173", "http://127.0.0.1:5173"];
+const allowedOrigins = [
+    "http://localhost:5173", 
+    "http://127.0.0.1:5173",
+    process.env.CLIENT_URL // For production frontend
+].filter(Boolean);
 
 // Middleware
 app.use(cors({

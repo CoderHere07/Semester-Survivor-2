@@ -229,7 +229,7 @@ const BattleArena = () => {
             const token = localStorage.getItem('token');
             if (isNaN(currentEnergy) || isNaN(currentStress)) return;
 
-            await axios.post('http://localhost:5001/api/game/save', {
+            await axios.post(import.meta.env.VITE_API_URL + '/api/game/save', {
                 stage: nextStage,
                 energy: currentEnergy,
                 stress: currentStress,
