@@ -18,8 +18,11 @@ app.use(cors({
 app.use(express.json());
 
 // Database Connection
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/semester-survivor', {
-})
+mongoose.connect(
+    process.env.MONGODB_URI ||
+    process.env.MONGO_URI ||
+    'mongodb://localhost:27017/semester-survivor'
+)
     .then(() => console.log('MongoDB Connected'))
     .catch(err => console.error(err));
 

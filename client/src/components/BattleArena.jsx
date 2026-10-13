@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { updateStats, setStage, switchTurn, resetGame, incrementAttackCount, resetAttackCount, updateGpa } from '../store/gameSlice';
 import { STAGES, TEACHER_ATTACKS, STUDENT_ACTIONS } from '../gameData';
-import axios from 'axios';
+import api from '../api';
 import Student3D from './Student3D';
 import Teacher3D from './Teacher3D';
 import { LayoutDashboard, ArrowRight, RotateCcw } from 'lucide-react';
@@ -229,7 +229,7 @@ const BattleArena = () => {
             const token = localStorage.getItem('token');
             if (isNaN(currentEnergy) || isNaN(currentStress)) return;
 
-            await axios.post(import.meta.env.VITE_API_URL + '/api/game/save', {
+            await api.post('/api/game/save', {
                 stage: nextStage,
                 energy: currentEnergy,
                 stress: currentStress,

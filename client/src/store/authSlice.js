@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import api from '../api';
 
 // Async Thunks
 export const register = createAsyncThunk('auth/register', async (userData, thunkAPI) => {
     try {
-        const res = await axios.post(import.meta.env.VITE_API_URL + '/api/auth/register', userData);
+        const res = await api.post('/api/auth/register', userData);
         if (res.data.token) {
             localStorage.setItem('token', res.data.token);
         }
@@ -17,7 +17,7 @@ export const register = createAsyncThunk('auth/register', async (userData, thunk
 
 export const login = createAsyncThunk('auth/login', async (userData, thunkAPI) => {
     try {
-        const res = await axios.post(import.meta.env.VITE_API_URL + '/api/auth/login', userData);
+        const res = await api.post('/api/auth/login', userData);
         if (res.data.token) {
             localStorage.setItem('token', res.data.token);
         }
@@ -34,7 +34,7 @@ export const loadUser = createAsyncThunk('auth/loadUser', async (_, thunkAPI) =>
         const token = localStorage.getItem('token');
         if (!token) return thunkAPI.rejectWithValue('No token');
 
-        const res = await axios.get(import.meta.env.VITE_API_URL + '/api/auth/me', {
+        const res = await api.get('/api/auth/me', {
             headers: { 'x-auth-token': token }
         });
         return res.data; // Expecting user object

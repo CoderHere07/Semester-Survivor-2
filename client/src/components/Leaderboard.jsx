@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api';
 import { ChevronLeft, Search, Trophy, Medal, Star } from 'lucide-react';
 import '../styles/Leaderboard.css';
 
@@ -12,7 +12,7 @@ const Leaderboard = () => {
     useEffect(() => {
         const fetchLeaderboard = async () => {
             try {
-                const res = await axios.get(import.meta.env.VITE_API_URL + '/api/game/leaderboard');
+                const res = await api.get('/api/game/leaderboard');
                 setLeaders(res.data || []);
                 setIsLoading(false);
             } catch (err) {

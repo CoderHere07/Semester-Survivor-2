@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { logout, loadUser } from '../store/authSlice';
 import { resetGame, setGameState } from '../store/gameSlice';
 import { STAGES } from '../gameData';
-import axios from 'axios';
+import api from '../api';
 import Student3D from './Student3D';
 import Teacher3D from './Teacher3D';
 import { Zap, LogOut } from 'lucide-react';
@@ -30,13 +30,13 @@ const Dashboard = () => {
             try {
                 const token = localStorage.getItem('token');
                 if (token) {
-                    const res = await axios.get(import.meta.env.VITE_API_URL + '/api/game', {
+                    const res = await api.get('/api/game', {
                         headers: { 'x-auth-token': token }
                     });
                     if (res.data) dispatch(setGameState(res.data));
                 }
 
-                const leadersRes = await axios.get(import.meta.env.VITE_API_URL + '/api/game/leaderboard');
+                const leadersRes = await api.get('/api/game/leaderboard');
                 setLeaders(leadersRes.data || []);
                 setIsLoading(false);
             } catch (err) {
