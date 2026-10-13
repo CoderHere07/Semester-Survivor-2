@@ -4,11 +4,22 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
 
+const configuredClientOrigins = [
+    process.env.CLIENT_URLS,
+    process.env.CLIENT_URL
+]
+    .filter(Boolean)
+    .flatMap(origins => origins.split(','))
+    .map(origin => origin.trim().replace(/\/+$/, ''))
+    .filter(Boolean);
+
 const allowedOrigins = [
     "http://localhost:5173", 
     "http://127.0.0.1:5173",
-    process.env.CLIENT_URL // For production frontend
-].filter(Boolean);
+    "https://semester-survivor-2.vercel.app",
+
+    ...configuredClientOrigins
+];
 
 // Middleware
 app.use(cors({

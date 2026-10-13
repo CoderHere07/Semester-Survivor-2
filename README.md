@@ -71,6 +71,16 @@ npm run dev
 - By default, the client sends API requests to `http://localhost:5001`. If your backend runs elsewhere, create `client/.env` with `VITE_API_URL` set to the backend origin (for example, copy `client/.env.example`), then restart the Vite dev server.
 - The application will be running at `http://localhost:5173`.
 
+### Deploying the client and server on Vercel
+
+If the client and server are deployed as separate Vercel projects, set these environment variables in Vercel:
+
+- **Client project:** `VITE_API_URL` must be the server project's deployment URL, for example `https://your-server.vercel.app` (no `/api` suffix).
+- **Server project:** set `CLIENT_URLS` to the exact client deployment origin(s), comma-separated if needed, for example `https://your-client.vercel.app,https://your-custom-domain.com`. Include `https://` and do not add paths.
+- **Server project:** set `MONGODB_URI` to the Atlas connection string and `JWT_SECRET` to a long, unique random value. Keep these variables in Vercel's Environment Variables, not in client variables or committed files.
+
+Apply the variables to the correct deployment environments and redeploy both projects after changing them. Use the stable production domains where possible; each Vercel preview domain must also be listed in `CLIENT_URLS` if the preview client needs to call this server.
+
 ---
 
 ## 🎮 How to Play
